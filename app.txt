@@ -1,0 +1,4 @@
+maven
+mysql
+nodejs
+temurin21-jdk

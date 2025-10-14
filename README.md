@@ -22,6 +22,13 @@ YOLO模型支持：yolov8n、yolo11n、yolo12n等模型。
 3. **交通行为分析**：通过算法识别交通场景群组，重点监控交通情况
 4. **智能预警系统**：多级风险评估，减少误报率，提高检测准确性
 
+## 安装使用
+
+```
+Get-Content apps.txt | ForEach-Object { scoop install $_
+.\start_all.bat
+```
+
 ## 系统架构
 
 ### 整体架构设计
