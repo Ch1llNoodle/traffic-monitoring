@@ -73,6 +73,7 @@ web-flask/
    ```bash
    conda create -n py12 python=3.12 -y
    conda activate py12
+
    pip install -r requirements.txt
    ```
 3. 下载所需 YOLO 权重（例如 `yolov8n.pt`、`yolo11n.pt`），放入 `weights/`，并在 `model_config.yaml` 中配置。
@@ -137,7 +138,7 @@ conda activate py12
 python app.py
 
 # 生产环境部署
-waitress-serve --listen=0.0.0.0:5000 app:app
+gunicorn -w 4 -b 0.0.0.0:5000 --worker-class gevent app:app
 ```
 
 服务启动后：
@@ -383,7 +384,6 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
    [Unit]
    Description=Traffic Monitoring Algorithm Service
    After=network.target
-   
    [Service]
    Type=simple
    User=www-data
@@ -391,7 +391,6 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
    Environment=PATH=/path/to/venv/bin
    ExecStart=/path/to/venv/bin/gunicorn -w 4 -b 0.0.0.0:5000 app:app
    Restart=always
-   
    [Install]
    WantedBy=multi-user.target
    ```
