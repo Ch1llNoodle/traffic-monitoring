@@ -27,20 +27,20 @@
 
 ---
 
-## 快速开始
+## 安装与运行
 
-### 前置要求
-*   Java 21+
-*   Node.js 18+
-*   Python 3.10+
-*   MySQL 8.0+
+本系统使用 PowerShell 脚本进行统一管理。
 
-### 开发启动
-详细启动脚本参考 `scripts/` 目录。
+### 1. 环境依赖安装
+在系统根目录下运行以下命令（确保已安装 [Scoop](https://scoop.sh/)）：
+```powershell
+Get-Content apps.txt | ForEach-Object { scoop install $_ }
+```
 
-```bash
-# 安装并启动所有服务 (需在各服务目录下分别操作或使用项目提供的统一脚本)
-# 详情参考 AGENTS.md 中的构建与运行指南
+### 2. 启动服务
+运行统一启动脚本：
+```powershell
+.\start_all.bat
 ```
 
 ---
